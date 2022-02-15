@@ -1,0 +1,9 @@
+<h1>Wikipedia Search</h1>
+<p>Search when typing stops</p>
+<input type="text" #searchTerm (keyup)="search(searchTerm.value)" />
+<ul>
+  <li *ngFor="let item of items | async">
+    <a *ngIf="item[1]" [href]="item[1]">{{ item[0] }}</a>
+  </li>
+</ul>
+ <span *ngIf="!(items | async)?.length">No results</span>
